@@ -47,8 +47,8 @@ It is your responsibility to request a review for this project from a peer. If n
 	- At this point we have access to both local and remote machine/server at the same time
 	- To access local machine hierarcy use an extra "l" for local before every shell input command
 	- An example to list files in local machine will be lls instead of ls, while in the remoteit will be the normal access
-	- I navigate through both running instance process of the local and remote machine using lls,lcd or ls, cd
-	- When i was in both current directories that u=is dur contain my screenshot and dir where i want to transfer the screenshot to
+	- I navigated through both running instance process of the local and remote machine using lls,lcd or ls, cd
+	- When i was in both current directories that is dir containing my screenshot and dir where i want to transfer the screenshot to
 	- I then used the put command to tranfer the file. eg "put pathto" "screenshotFileName"
 	- I confirmed if it was successful by by navigating to the file i wanted it transferred to, I used ls to list files, it was transferred
-
+	- After this I did add, commit and push to github
