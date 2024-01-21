@@ -36,19 +36,20 @@ It is your responsibility to request a review for this project from a peer. If n
 
 
 ## STEPS TO USE SFTP IN THE COMMAND-LINE TOOL
-	- I opened command-line terminal on my local machine(might differ eg GitBash, PowerShell
+	- I opened the command-line terminal on my local machine, In my case Command Prompt(might differ eg GitBash, PowerShell
 	- Next, i  navigated to the sandbox(remote machine/server)
 	- Copied the SFTP hostname/address
 	- Pasted this command on CMD(local machine).
-	- Press emter to execute command "stfp abc..."
+	- Press enter to execute command "stfp abc..."
 	- If done properly, it prompts for a password which is provided by the host(ALX SANDBOX)
 	- Copy and Paste or Type password. Press Enter
-	- The path of CMD changes to "stfp". Showing successful connection for secure file transfer
+	- The path of CMD changes to "stfp". Showing successful connection for secure file transfer protocol
 	- At this point we have access to both local and remote machine/server at the same time
-	- To access local machine hierarcy use an extra "l" for local before every shell input command
-	- An example to list files in local machine will be lls instead of ls, while in the remoteit will be the normal access
+	- To access local machine hierarcy use an extra "l" i.e l - for local, before every shell input command
+	- An example to list files in local environment will be lls instead of ls, while in the remote environmentit will be the normal ls access
 	- I navigated through both running instance process of the local and remote machine using lls,lcd or ls, cd
-	- When i was in both current directories that is dir containing my screenshot and dir where i want to transfer the screenshot to
-	- I then used the put command to tranfer the file. eg "put pathto" "screenshotFileName"
-	- I confirmed if it was successful by by navigating to the file i wanted it transferred to, I used ls to list files, it was transferred
+	- When I was in both current directories that is dir containing my screenshot and dir where i want to transfer the screenshot to
+	- I then used the put command to tranfer the file. eg "put pathto" "screenshotFileName" or simply put "screeshotFileName"
+	- I confirmed if it was successful by navigating to the file I wanted it transferred to, I used ls to list files, it was transferred
+	- Also, reconfired on the remote environment through my sandbox and it was the the subdirectory I wanted it.
 	- After this I did add, commit and push to github
