@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Bash script displaying processses containing the word "bash"
-# shellceck disable-SC2009
-ps -auxf
+# shellceck disable=SC2009
+ps -aux | grep bash
