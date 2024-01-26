@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # A script that prints "Best School" 10 times using util loop
 i=0
-until [$i -le 9];
+until [ $i -ge 9 ];
 do
 	echo "Best School"
+	((i++))
 done
