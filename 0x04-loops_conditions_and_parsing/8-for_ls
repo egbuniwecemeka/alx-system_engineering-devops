@@ -3,5 +3,5 @@
 list_dir=$(ls)
 for i in $list_dir;
 do
-	echo "$i" | cut -d "-" 
+	echo "$i" | cut -d '-' -f1
 done
