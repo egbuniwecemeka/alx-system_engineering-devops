@@ -4,12 +4,11 @@
 n=0
 while [ "$n" -lt 10 ];
 do
-	echo "Best School"
-
 	if [ "$n" -eq 8 ];
 	then
 		echo "Hi"
 	fi
-	sleep 1
+	echo "Best School"
 	((n++))
+	sleep 1
 done
