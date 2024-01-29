@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 # Displays the current directory in list format.
 list_dir=$(ls)
-echo "$list_dir"
+for i in $list_dir;
+do
+	echo "$i" | cut -d "-" 
+done
