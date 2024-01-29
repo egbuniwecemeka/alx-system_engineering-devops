@@ -6,7 +6,7 @@ n=0
 while [ $n -lt 13 ];
 do
 	echo "Hour: "$n""
-	m=0
+	m=1
 	while [ "$m" -lt 60 ];
 	do
 		echo "$m"
