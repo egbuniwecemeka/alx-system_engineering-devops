@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Displays the current directory in list format.
+list_dir=$(ls)
+echo "$list_dir"
