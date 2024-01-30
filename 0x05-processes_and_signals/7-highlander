@@ -5,7 +5,6 @@
 
 terminate(){
 	echo "I am invicible"
-	exit
 }
 
 trap terminate SIGTERM
