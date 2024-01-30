@@ -4,7 +4,7 @@
 #+ displays 'I am invicible" on receiving SIGTERM
 
 terminate(){
-	echo "I am invicible!!!"
+	echo "I am invincible!!!"
 }
 
 trap terminate SIGTERM
