@@ -7,17 +7,16 @@
 #+ Deletes the file /var/run/myscript.pid and terminates itself
 #+ when receiving a SIGQUIT or SIGTERM signa
 
-file_pid="/var/run/myscript.pid"
-echo "$$" > "$file_pid"
+echo "$$" > /var/run/myscript.pid
 
 del_file(){
 	echo "clean up and exit"
-	rm -f "$file_pid"
+	rm /var/run/myscript.pid
 	exit
 }
 while true;do
 	echo "To infinity and beyond"
-	trap 'echo "I hate the kill command"' SIGTERM
-	trap 'echo "Y U no love me?!" && del_file' SIGINT
+	trap 'echo "I hate the kill command" && terminator' SIGTERM
+	trap 'echo "Y U no love me?!"' SIGINT
 	trap 'del_file' SIGQUIT
 done
