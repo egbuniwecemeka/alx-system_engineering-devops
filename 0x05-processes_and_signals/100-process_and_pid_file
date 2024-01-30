@@ -8,16 +8,16 @@
 #+ when receiving a SIGQUIT or SIGTERM signa
 
 file_pid="/var/run/myscript.pid"
-echo $$ > "$(file_pid)"
+echo $$ > $file_pid
 
 del_file(){
 	echo "clean up and exit"
-	rm -f "$file-pid"
+	rm -f "$file_pid"
 	exit
 }
 while true;do
 	echo "To infinity and beyond"
-	trap 'echo "I hate the kill command"; exit' SIGTERM
-	trap 'echo "Y U no love me?!"; exit' SIGINT
+	trap 'echo "I hate the kill command"' SIGTERM
+	trap 'echo "Y U no love me?!" && del_file' SIGINT
 	trap "del_file" SIGQUIT
 done
