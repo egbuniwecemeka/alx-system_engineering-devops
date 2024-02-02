@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# A bash script that display listening network process alongside
+#+ its PID and name
+netstat -l --program
