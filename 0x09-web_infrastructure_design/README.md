@@ -1,6 +1,4 @@
-#  WEB INFRASTRUCTURE DESIGN
-
-#
+# WEB INFRASTRUCTURE DESIGN
 
 ## Resource 1
 
@@ -31,7 +29,7 @@ They are **Relational DB, Object-oriented DBs, Distributed DBs, Data warehouses,
 
 ## What is a DB Software?
 
-DB software is used to create, edit and maintain data files and records. 
+DB software is used to create, edit and maintain data files and records.
 The software also handles data storage, backup and reporting, multi-access control, and security. Database software is also referred to as DBMS
 
 ## What is a DBMS?
@@ -91,7 +89,6 @@ In contrast, in Scenario 1 the pricing lookup service is not reusable because th
 
 Recently, XML Web services have blurred the line between application servers and Web servers. By passing an XML payload to a Web server, the Web server can now process the data and respond much as application servers have in the past
 
-
 ## RESOURCE 3
 
 * DNS Record Types: Defined and Explained
@@ -138,4 +135,16 @@ For example: we can use ftp.example.com for File Transfer Protocol and serve web
 A CNAME can point to another CNAME. (Inefficient and slows load speed, poor user experience)
 
 * NS record
-The nameserver(NS) record specifies the authoritative DNS server for the domain. In other words, 
+The nameserver(NS) record specifies the authoritative DNS server for the domain. In other words, NS records points to where an application eg web server can find an IP address for a domain name.
+Usage:
+Creating a simple web site or purchasing a web hosting service, the user will have received an email with nameserver details. The nameserver connects the domain name to the server your site is hosted on.
+
+* MS record
+Nail service(MX) record speccifies where emails for a domain should be routed to. In simple words it makes it possible to direct emails to a mail server
+Note: The can be multiple MX records for a single domain name. **The lower the priority value, the higher the actual priority.**
+Usage:
+With MX record it is possible to hand off email to a dedicated server.
+
+## Conclusion
+
+DNS makes it possibel for us to use human-readable domain names to access resources on the internet.
