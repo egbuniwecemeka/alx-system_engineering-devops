@@ -148,3 +148,46 @@ With MX record it is possible to hand off email to a dedicated server.
 ## Conclusion
 
 DNS makes it possibel for us to use human-readable domain names to access resources on the internet.
+
+## RESOURCE 4
+
+## Single point of failure(SPOF)
+
+This is a unique part of a system if dysfunctional causes the whole system to fail. **Essentially, it's a critical weak link in the chain that can bring down the entire system if it malfunctions.**
+
+Application Clients(End Users) -> Internet Router -> Load Balancer -> Application Servers
+
+A single point of failure (SPOF) is essentially a flaw in the design, configuration, or implementation of a system, circuit, or component that poses a potential risk because it could lead to a situation in which just one malfunction or fault causes the whole system to stop working.
+Note: SPOF are undesirable in systems that require high availability and reliabilty, eg supply chains, software applications an networks. SPOF are both possible in software and hardware layouts
+
+High-availability clusters and both physical redundancy and logical redundancy are key to avoiding SPOFs. If a system component fails, another component should immediately take its place.
+
+## How to eliminate single points of Failure
+
+* Identify potential risks(conducting SPOF risk assesment) across hardwware, software/providers/services and people
+* IT conducts SPOF analysis on unmonitored devices on network, software/hardware and providers tht have no redundancy, people who cannit be replaced in case of downtime, data that is not backed up. Identify data to be lost in case of failure.
+* Each individual server within a high-availability server cluster may achieve redundancy by having multiple hard drives, power supplies, and other components.
+* At the system level, ensure high availability for the server cluster with a load balancer. Spare servers can also deploy in case of failure to achieve system level redundancy.
+* At the personnel level, a single point of failure person has access to something no one else does, or conducts business critical tasks that no one else can handle.
+Network protocols intended to avoid single points of failure include:
+Intermediate System to Intermediate System
+Open Shortest Path First
+Shortest Path Bridging
+
+## Threat Protection and Load Balancer Single Point of Failure
+
+Advanced threat protection tools such as;
+
+* Web application firewalls(WAF)
+* load balancers
+* intrusion prevention systems(IPS)
+* Advanced threat protection(ATP)
+
+All the above tools are at risk during power failures, block good traffic or pass bad traffic. During this time they are susceptible to brute force attcks, cross-site request forgery or implementing XML external entities
+
+Because these security tools can fail, it is necesary to configure WAF security architecture to minimize the frequency and effectiveness of various attacks and avoid SPOF
+
+## How Does Avi’s Platform Help Eliminate Single Points of Failure?
+
+Avi platform load balancing capabilities keep systems online reliably and reduces chances of SPOF by automatically redistributing traffic, instantiating virtual services in self healing manner when one fails and handling workload additions or moves
+
