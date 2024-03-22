@@ -48,3 +48,5 @@ $ apt-get install -y ruby-augeas
 $ apt-get install -y ruby-shadow
 $ apt-get install -y puppet
 
+
+* It’s important to notice that while we use exec, package, and such for declaring resources (with lowercase), when referring to previously defined resources, we use Exec, Package, and so on (capitalized).
