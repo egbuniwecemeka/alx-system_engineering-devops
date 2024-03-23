@@ -1,14 +1,13 @@
 # Installing flask from pip3
 
-$root = '/usr/bin/'
-$package = 'python3-pip3'
-$flask_version = '2.1.0'
 
-package {$package:
-  ensure => 'installed',
+package {'python3-pip':
+  ensure => 'installed'
 }
 
+$flask_version = '2.1.0'
+
 exec {'install_flask':
-  command => "${root}/pip3 install Flask==${flask_version}",
-  require => Package[$package]
+  command => "/usr/bin/pip3 install Flask==&flask_version",
+  require => Package['python3-pip']
 }
