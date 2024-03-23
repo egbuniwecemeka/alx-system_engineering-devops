@@ -8,6 +8,6 @@ package {'python3-pip':
 $flask_version = '2.1.0'
 
 exec {'install_flask':
-  command => "/usr/bin/pip3 install Flask==&flask_version",
+  command => "/usr/bin/pip3 install Flask==" +&flask_version,
   require => Package['python3-pip']
 }
