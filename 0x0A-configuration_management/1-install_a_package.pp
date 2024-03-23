@@ -1,5 +1,11 @@
 # A puppet script that installs flask using pip3
-$desired_version = '2.1.0'
+
 package {'flask':
-  ensure => ,
+  ensure   => '2.1.0,
+  provider => 'pip3'
+}
+
+package {'Werkzeug':
+  ensure   => '2.1.1',
+  provider => 'pip3'
 }
