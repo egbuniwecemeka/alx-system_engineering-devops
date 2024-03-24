@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# A bash script using SSH client side config to enable connection without password
+Hostname alxserver
+  HostName 34.204.101.147
+  User 'ubuntu'
+  IdentityFile '~/.ssh/school'
+
