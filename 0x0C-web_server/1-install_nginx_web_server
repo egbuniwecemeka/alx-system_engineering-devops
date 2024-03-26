@@ -3,7 +3,7 @@
 # It should be listening on port 80(default)
 
 echo -e "Nginx update and installation\n"
-sudo apt-get -y update && sudo apt-get -y install nginx
+sudo apt-get -y update -qq && sudo apt-get -y install nginx
 
 # Startup nginx
 sudo service start nginx
