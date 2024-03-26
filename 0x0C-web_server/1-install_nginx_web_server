@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# A bash script that installs nginx on my server
+# It should be listening on port 80(default)
+
+echo -e "Nginx update and installation\n"
+sudo apt-get -y update && sudo apt-get -y install nginx
+
+sudo service start nginx
+# Listening at port 80
+sudo ufw allow 'Nginx HTTP'
+
+# verify change 
+sudo ufw status
+
+# Grant owner appropriate permissions to website files
+sudo chown -R "$USER":"$USER" /var/www/html
+sudo chmod -R  755 /var/www
+
+# Backup default index file
+cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.bckup
+
+# Create new index
+echo -e "Hello World!" | dd status=none of=/var/www/html/index.nginx-debian.html
+
+# Restart nginx
+sudo service restart nginx
+
