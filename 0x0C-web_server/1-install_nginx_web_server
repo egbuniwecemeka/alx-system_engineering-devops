@@ -25,5 +25,5 @@ cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.b
 echo -e "Hello World!" > /var/www/html/index.nginx-debian.html
 
 # Restart nginx
-sudo service restart nginx
+sudo service nginx restart
 
