@@ -2,7 +2,7 @@
 # A bash script that transfers a file to my remote directory using scp
 # scp stands for Secure Copy Protocol
 
-if [ "$#" -ne 4 ]; then
+if [ $# -ne 4 ]; then
 	echo "Usage: $0 PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
 else
 	scp -o StrictHostKeyCheckEngine=no -i "$4" "$1" "$3@$2":~
