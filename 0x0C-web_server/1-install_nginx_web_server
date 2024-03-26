@@ -11,9 +11,6 @@ sudo service start nginx
 # Listening at port 80
 sudo ufw allow 'Nginx HTTP'
 
-# verify change 
-sudo ufw status
-
 # Grant owner appropriate permissions to website files
 sudo chown -R "$USER":"$USER" /var/www/html
 sudo chmod -R  755 /var/www
