@@ -6,7 +6,7 @@ echo -e "Nginx update and installation\n"
 sudo apt-get -y update -qq && sudo apt-get -y install nginx
 
 # Startup nginx
-sudo service start nginx
+sudo service nginx start
 
 # Listening at port 80
 sudo ufw allow 'Nginx HTTP'
