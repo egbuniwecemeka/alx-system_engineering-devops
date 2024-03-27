@@ -1,5 +1,33 @@
 #!/usr/bin/env bash
-# Bash script configuring server to redirect redirect_me to another page.
-# The redirection must be a “301 Moved Permanently”
-redirection_string="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
-sudo sed -i "s/server_name _;/$redirection_string/" /etc/nginx/sites-enabled/default
+# A bash script that installs nginx on my server
+# It should be listening on port 80(default)
+
+echo -e "Nginx update and installation\n"
+sudo apt-get -y update -qq && \
+	sudo apt-get -y install nginx
+
+# Startup nginx
+sudo service nginx start
+
+# Listening at port 80
+sudo ufw allow 'Nginx HTTP'
+
+# Grant owner appropriate permissions to website files
+sudo chown -R "$USER":"$USER" /var/www/html
+sudo chmod -R  755 /var/www
+
+# Backup default index file
+cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.bckp
+
+# Create new index
+echo -e "Hello World!" | dd status=none of=/var/www/html/index.nginx-debian.html
+
+# Seeting up /redirect_me to a youtube video
+sudo sed -i '24i\	rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+
+# Restart nginx
+sudo service nginx restart
+
+# Completed
+echo -e "\nCompleted\n"
+
