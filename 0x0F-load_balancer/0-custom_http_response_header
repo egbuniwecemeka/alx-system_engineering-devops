@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# A bash script that configures a brand new Ubuntu machine to the requirements
+
+# Update package index/extensions
+sudo apt-get update
+
+# Install nginx server
+sudo apt install nginx
+
+# start server
+sudo service nginx start
+
+# Add add_header directive under server block
+sudo sed -i '/server {/a \\tadd_header X-Served-By $hostname;' /etc/nginx/sites-available/default
+
+# Test Nginx configuration
+sudo nginx -t
+
+# Restart nginx server
+sudo service nginx restart
+
+echo "Nginx configured successfully with custom HTTP response header."
