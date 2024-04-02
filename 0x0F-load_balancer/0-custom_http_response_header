@@ -18,5 +18,3 @@ sudo nginx -t
 
 # Restart nginx server
 sudo service nginx restart
-
-echo "Nginx configured successfully with custom HTTP response header."
