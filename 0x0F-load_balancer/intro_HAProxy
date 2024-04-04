@@ -1,0 +1,31 @@
+# HAProxy Terminology
+# ACL
+# test conditions and take actions based on those test results
+
+# Backend
+# Backend caan be defined by the load balance algorithm to use
+# and a list of servers and ports
+
+
+# adding more servers to your backend will increase your potential load capacity by spreading
+# the load over multiple servers. Increased reliability is also achieved through this manner,
+
+# Example of 2 backend configuration where each contains 2 servers and ports
+backend web-egbuniwe
+  # balance roundrobin line specifies the load balancing algorithm
+  balance roundrobin
+  server web-01 web-01.yourdomain.com:80 check
+  server web-02 web-02.yourdomain.com:80 check
+
+backend images-egbuniwe
+  balance roundrobin
+  # mode http specifies that layer 7 proxying will be used,
+  mode http
+  server images images.yourdomain.com:80 check
+  server images images.yourdomain.com:80 check
+
+# Types of Load Balancing
+# No Load balancing
+# Layer 4 Load Balancing(Transport layer)
+# Load balancing this way will forward user traffic based on IP range and port
+# 

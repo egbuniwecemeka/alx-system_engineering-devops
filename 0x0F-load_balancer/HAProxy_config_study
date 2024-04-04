@@ -1,0 +1,126 @@
+#!/usr/bin/env bash
+# A bash script and installs and configures HAProxy on lb-01
+
+frontend www
+  bind :80
+  acl home_url path_beg -i /home/
+  # acl inline - for inline ACL use curly braces otherwise reference acl name
+  # use_backend static_address if { path_beg -i /home/ }
+  use_backend static_address if home_url
+
+backend static_address
+  server lb-01 52.201.212.21:80
+
+# You can combine ACL expressions together to form complex conditions
+# AND Operator(implied)
+# To use AND logical operators, list ACL consecutively to determine they are true
+
+frontend www.egbuniwefarms
+  bind :80
+  acl home_url -i path_beg /home/
+  acl is_get method GET
+  use_backend egbuniwe_pages if home_url about_url
+
+backend egbuniwe_pages
+  server web-01 XX.XXX.XXX.XX:port
+
+# Alternatively the above can be written inline as
+frontend www.egbuniwefarms.com
+  bind :80
+  use_backend egbuniwe_pages if { path_beg /home/ } { method GET }
+
+backend egbuniwe_pages
+  server web-01 XX.XXX.XXX.XX:port
+
+# Mixed named (&&) acl and inline acl
+frontend xxx
+  bind :80
+  acl feedback_url -i path_beg /feedback/
+  use_backend egbuniwe_feedback if feedback_url { method GET }
+
+backend egbuniwe_feedback
+  server web-01 XX.XXX.XXX.XX:80
+
+# OR Operator
+frontend zzz
+  bind :80
+  acl images_url path_bed /images/
+  acl image_format path_end .jpg
+  use_backend egbuniwe_images if images_url || image_format
+
+backend egbuniwe_images
+  server web-01 XX.XXX.XXX.XX:80
+
+# You can also create an or statement by defining multiple ACLs with the same name.
+frontend aaa
+  bind :80
+  acl images_properties path_beg /images/
+  acl images_properties path_end .jpg
+  use_backend egbuniwe_images if images_properties
+
+backend egbuniwe_images
+  server web-01 XX.XXX.XXX.XX:80
+
+# Negate a condition
+# to negate a condition, add a question mark in front of it
+frontend ftp
+  bind :80
+  acl payment path_beg /pay/
+  acl is_get method GET
+  use_backend egbuniwe_payment if payment !is_get
+
+backend egbuniwe_pay
+  server lb-01 XX.XXX.XXX.XX:80
+
+# You can also use the unless operator
+# We use unless to route to backend_address unless is a PHP file
+frontend www
+  bind :80
+  acl is_php path_end .php
+  use_backend egbuniwe_ftype unless is_php
+
+backend egbuniwe_ftype
+  server lb-01 XX.XXX.XXX.XX:80
+
+
+# ACL Flags
+# -f - used to load a file that matches a value
+# Must be followed by name of file load-balancer reads value from.
+# Multiple -f arguments can also match multiple files
+frontend www
+  bind :80
+  # If you use -f in conjunction with -m, the -m must come first.
+  acl feeding_manual path -i -m beg -f /feeding.txt
+  # The -M flag, used with -f, loads a map file.
+  # A map file consist of 2 columns namely, keys & values
+  #  An ACL line reads only the first column, second column could be used on a http-request
+
+frontend www
+  bind :80
+  
+  # Does the Host header match a key in the map file?
+  acl requires_redirect req.hdr(Host) -i -M -f /redirects.map
+
+  # Use the correct URL based on the Host header
+  http-request redirect prefix https://%
+[req.hdr(Host),lower,map(/redirects.map) code 301 if requires_redirect]
+
+
+# -u, set a unique ID
+# -u allows setting the integer ID of an ACL. Otherwise this is set automatically
+frontend www
+  bind :80
+  acl images_profile path_beg -i -u 50 /images
+
+# -m, set the match type 
+# The -m flag sets a specific match type to use when comparing the ACL against the input sample
+# If you use -f in conjunction with -m, the -m must come first.
+
+# -n, disable DNS resolution 
+# The -n flag, used with -f, disables DNS resolution when loading IP addresses from a file.
+
+frontend www
+  bind :80
+  acl safe_ips src -n -f /safeips.txt
+  tcp-request content reject  unless safe_ips
+
