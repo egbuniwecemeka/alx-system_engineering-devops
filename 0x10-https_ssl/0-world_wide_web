@@ -1,25 +1,24 @@
 #!/usr/bin/env bash
-# Displays information about several subdomains connected to domain
-# Usage: ./0-world_wide_web <domain> <subdomain>
+# Usage: domain_info <domain> <subdomain>
 
-# Function retrieves and displays info about subdomain
+# Function that retrieves and displays info about subdomain
 domain_info() {
-	# DNS lookup for subdomain under specified domain
-	line=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n' ' ')
-	# Extract relevant info and print it
-	echo "$2 $line" | awk '{print "The subdomain " $1 " is a " $2 " record and points to "$3}'
+    # DNS Lookup for subdomain of a specific domain
+    line=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n' ' ')
+    # Extract info and print output
+    echo "$1 $line" | awk '{print "The subdomain " $1 " is a " $2 " record and points to a " $3 "}'
 }
 
-# Check command-line argument
-if [ "$#" === 1 ]
+# Check number of command-line arguments
+if [ "$#" == 1 ]
 then
-    # If only 1 arg, call subdomain_info function with subdom names
+    # If only 1 argument call domain_info with prdefined subdomain name
     domain_info "$1" "www"
     domain_info "$1" "lb-01"
     domain_info "$1" "web-01"
     domain_info "$1" "web-02"
-elif [ "$#" === 2 ]
+elif [ "$#" == 2 ]
 then
-    # If 2 args call domain_info function along subdomain name
+    # if two arguments, call domain_info with provided subdomain name
     domain_info "$1" "$2"
 fi
