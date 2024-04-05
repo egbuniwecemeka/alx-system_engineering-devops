@@ -4,7 +4,7 @@
 
 # Function retrieves and displays info about subdomain
 domain_info() {
-	# DNS lookup fofr subdomain under domain
+	# DNS lookup for subdomain under specified domain
 	line=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n' ' ')
 	# Extract relevant info and print it
 	echo "$2 $line" | awk '{print "The subdomain " $1 " is a " $2 " record and points to "$3}'
@@ -18,7 +18,7 @@ then
     domain_info "$1" "lb-01"
     domain_info "$1" "web-01"
     domain_info "$1" "web-02"
-elif [ "$# === 2" ]
+elif [ "$#" === 2 ]
 then
     # If 2 args call domain_info function along subdomain name
     domain_info "$1" "$2"
