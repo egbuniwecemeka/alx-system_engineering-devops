@@ -6,7 +6,7 @@ domain_info() {
     # DNS Lookup for subdomain of a specific domain
     line=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n' ' ')
     # Extract info and print output
-    echo "$1 $line" | awk '{print "The subdomain " $1 " is a " $2 " record and points to a " $3 "}'
+    echo "$1 $line" | awk '{print "The subdomain " $1 " is a " $2 " record and points to a " $3}'
 }
 
 # Check number of command-line arguments
