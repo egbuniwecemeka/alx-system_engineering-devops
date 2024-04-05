@@ -11,7 +11,7 @@ domain_info() {
 }
 
 # Check command-line argument
-if [ "$#" === 1]
+if [ "$#" === 1 ]
 then
     # If only 1 arg, call subdomain_info function with subdom names
     domain_info "$1" "www"
