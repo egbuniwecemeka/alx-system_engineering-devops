@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# A script that uses ssh(pkey) to connect to a remote server
+# -v flag for verbose mode and -i for private_key spec
+ssh -v -i ~/.ssh/school ubuntu@34.204.101.147
