@@ -11,7 +11,7 @@ sudo apt install nginx
 sudo service nginx start
 
 # Add add_header directive under server block
-sudo sed -i '/server {/a \\tadd_header X-Served-By $hostname;' /etc/nginx/sites-available/default
+sudo sed -i "/server {/a \\tadd_header X-Served-By $hostname;" /etc/nginx/sites-available/default
 
 # Test Nginx configuration
 sudo nginx -t
