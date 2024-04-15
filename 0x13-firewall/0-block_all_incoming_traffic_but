@@ -4,7 +4,7 @@
 sudo apt-get -y update
 
 # Install Uncomplicated Firewall
-sudo apt -y install ufw
+sudo apt-get -y install ufw
 
 # Set default configuration
 sudo ufw default deny incoming
