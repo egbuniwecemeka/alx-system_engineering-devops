@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# Update package lists
+sudo apt-get update
+
+# Install Uncomplicated Firewall
+sudo apt install ufw
+
+# Enable UFW service
+sudo service enable ufw
+
+# Display UFW status
+sudo ufw status
+
+# Allow OpenSSH
+sudo ufw allow OpenSSH
+
+# Set default configuration
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+
+# Allow necessary ports
+sudo ufw allow 22/tcp
+sudo ufw allow 443/tcp
+sudo ufw allow 80/tcp
+
+# Display verbose UFW status
+sudo ufw status verbose
