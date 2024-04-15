@@ -7,10 +7,10 @@ sudo apt-get update
 sudo apt install ufw
 
 # Enable UFW service
-sudo service enable ufw
+#sudo service enable ufw
 
 # Display UFW status
-sudo ufw status
+#sudo ufw status
 
 # Set default configuration
 sudo ufw default deny incoming
