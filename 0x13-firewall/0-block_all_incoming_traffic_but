@@ -10,7 +10,8 @@ sudo apt -y install ufw
 sudo ufw status
 
 # Set default configuration
-sudo ufw default deny incomming
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
 
 # Allow necessary ports (SSH, HTTPS/SSL, HTTP)
 sudo ufw allow 22/tcp
