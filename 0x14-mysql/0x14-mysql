@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# A bash script that installs MySQL version 5.7
+
+# Download the MySQL APT Repository Package:
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.17-1_all.deb
+
+# Install the Repository Package:
+sudo dpkg -i mysql-apt-config_0.8.17-1_all.deb
+
+# Update Package Index:
+sudo apt update
+
+# Install MySQL Server 5.7:
+sudo apt install mysql-server=5.7 mysql-client=5.7 mysql-community-server=5.7 mysql-community-client=5.7
+
+# sudo service mysql status
