@@ -7,10 +7,10 @@ then
 fi
 
 password=$1
-timestamp=$(date "+%d%m%Y")
+timestamp=$(date "+%d-%m-%Y")
 backup_dir="."
 backup_file="backup.sql"
-compressed_backup_file="backup_${timestamp}.tar.gz"
+compressed_backup_file="${timestamp}.tar.gz"
 
 # Dump all databases to a SQL file
 sudo mysqldump -uroot -p"${password}" --all-databases > "${backup_dir}/${backup_file}"
