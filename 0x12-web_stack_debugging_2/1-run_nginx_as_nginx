@@ -3,12 +3,12 @@
 
 sudo adduser nginx
 
-sudo -u nginx service nginx start
+service nginx start
 
 # In-place file text edit to update user as nginx
 sed -i 's/^user .*/user nginx;/' /etc/nginx/nginx.conf
 
 # nginx listens on all active IPs on port 8080
-sed -i '/^http {/a \	listen 8080' /etc/nginx/nginx.conf
+sed -i '/^server {/a \	listen 8080' /etc/nginx/nginx.conf
 
 service nginx reload
