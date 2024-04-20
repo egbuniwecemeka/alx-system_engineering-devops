@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # A bash script that run user(Nginx) as user(Nginx)
 
+sudo adduser nginx
+
 sudo -u nginx service nginx start
 
 # In-place file text edit to update user as nginx
