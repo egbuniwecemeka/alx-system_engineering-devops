@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# A bash script show the user shows the user using whoami command
+# A bash script that shows user(any) using whoami command
 if [ "$#" -ne 1 ] 
 then
 	echo "Usage: $0 enter_user"
