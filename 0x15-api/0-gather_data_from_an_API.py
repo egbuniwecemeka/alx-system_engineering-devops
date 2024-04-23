@@ -8,6 +8,7 @@ import requests
 import sys
 
 if __name__ == "__main__":
+    # BasrURL for JSONPlaceholder API
     url = 'https://jsonplaceholder.typicode.com/'
 
     user_id = sys.argv[1]
