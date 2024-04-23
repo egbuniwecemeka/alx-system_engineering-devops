@@ -26,9 +26,10 @@ if __name__ == "__main__":
     todos = todo_response.json()
 
     #List to store completed task
-    complete = [t.get("title") for t in todos if t.get("complete") is True]
+    complete = [t.get("title") for t in todos if t.get("completed") is True]
 
-    print("Employee {} is done with tasks({}/{})".format(user.get("name"),
+    print("Employee {} is done with tasks({}/{}):".format(user.get("name"),
                                                          len(complete), len(todos)))
     
-    [print("\t {}".format(complete)) for c in complete]
+    for c in complete:
+        print("\t {}".format(c))
