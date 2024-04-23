@@ -4,7 +4,7 @@ import requests
 import csv
 import sys
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     user_id = sys.argv[1]
 
     # Base url for JSONPlaceholder API
