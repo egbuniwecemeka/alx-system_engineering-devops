@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -la | grep -E 's/^\.$/\.\//; s/^\.\.$/\.\.\//' | tr  '\n' ','
+ls -lap | grep  |tr '\n' ','
