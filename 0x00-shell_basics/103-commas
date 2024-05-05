@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -lap | grep  |tr '\n' ','
+ls -ap |tr '\n' ','
