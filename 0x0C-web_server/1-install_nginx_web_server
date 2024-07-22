@@ -24,4 +24,3 @@ echo -e "Hello World!" | dd status=none of=/var/www/html/index.nginx-debian.html
 
 # Restart nginx
 sudo service nginx restart
-
