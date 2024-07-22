@@ -18,7 +18,7 @@ sudo chmod -R 755 /var/www/
 echo -e "Hello World!" > /var/www/html/index.nginx-debian.html
 
 # Add add_header directive under server block
-sudo sed -i "/server_name _;/a \\tadd_header X-Served-By \$hostname;/" > /etc/nginx/sites-available/default
+sudo sed -i "/server_name _;/a \\tadd_header X-Served-By \$hostname;" > /etc/nginx/sites-available/default
 
 # Test Nginx configuration
 sudo nginx -t
