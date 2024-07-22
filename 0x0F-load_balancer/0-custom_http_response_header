@@ -11,7 +11,7 @@ sudo apt install nginx
 sudo service nginx start
 
 # Granting directories and files necessary permissions
-sudo chown -R "$USER":"$USER" /var/www/default
+sudo chown -R "$USER":"$USER" /var/www/html
 sudo chmod -R 755 /var/www/
 
 #
