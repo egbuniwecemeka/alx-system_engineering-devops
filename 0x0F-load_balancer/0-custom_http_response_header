@@ -2,10 +2,10 @@
 # A bash script that configures a brand new Ubuntu machine to the requirements
 
 # Update package index/extensions
-sudo apt-get update
+sudo apt-get -y update
 
 # Install nginx server
-sudo apt install nginx
+sudo apt-get -y install nginx
 
 # start server
 sudo service nginx start
@@ -18,7 +18,7 @@ sudo chmod -R 755 /var/www/
 echo -e "Hello World!" > /var/www/html/index.nginx-debian.html
 
 # Add add_header directive under server block
-sudo sed -i "/server_name _;/a \\tadd_header X-Served-By \$hostname;" > /etc/nginx/sites-available/default
+sudo sed -i "/server_name _;/a \\tadd_header X-Served-By \$hostname;" /etc/nginx/sites-available/default
 
 # Test Nginx configuration
 sudo nginx -t
