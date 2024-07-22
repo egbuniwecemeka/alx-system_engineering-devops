@@ -11,8 +11,8 @@ sudo apt install nginx
 sudo service nginx start
 
 # Granting directories and files necessary permissions
-sudo chown $USER:$USER /var/www/default
-sudo chmod 755 /var/www/
+sudo chown -R "$USER":"$USER" /var/www/default
+sudo chmod -R 755 /var/www/
 
 #
 echo -e "Hello World!" > /var/www/html/index.nginx-debian.html
