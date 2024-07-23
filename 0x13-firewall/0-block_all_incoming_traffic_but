@@ -1,5 +1,17 @@
 #!/usr/bin env bash
 # A bash script that installs Uncomplicated firewall
 
+# Updates and Installs ufw
 sudo apt-get install -y ufw
 
+# Lists applicationsufw can manage
+sudo ufw app list
+
+# Allows SSH connections through the firewall
+sud ufw allow OpenSSH
+
+# Enable ufw with default settings 
+# Be careful as can lock user out without appropriate configuration settings
+# sudo ufw enable
+
+sudo ufw status
