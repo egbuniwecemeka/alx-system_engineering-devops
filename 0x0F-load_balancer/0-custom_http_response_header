@@ -22,7 +22,7 @@ hostname=$(hostname)
 
 # Add add_header directive under server block
 header_string="server_name _;\n\tadd_header X-Served-By $hostname;"
-sudo sed -i "|server_name _;|$header_string|" /etc/nginx/sites-enabled/default
+sudo sed -i "s|server_name _;|$header_string|" /etc/nginx/sites-enabled/default
 
 # Test Nginx configuration
 sudo nginx -t
