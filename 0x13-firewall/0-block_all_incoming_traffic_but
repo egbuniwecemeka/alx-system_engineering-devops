@@ -1,0 +1,5 @@
+#!/usr/bin env bash
+# A bash script that installs Uncomplicated firewall
+
+sudo apt-get install -y ufw
+
