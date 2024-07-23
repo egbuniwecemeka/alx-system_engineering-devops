@@ -7,8 +7,16 @@ sudo apt-get install -y ufw
 # Lists applicationsufw can manage
 sudo ufw app list
 
-# Allows SSH connections through the firewall
-sud ufw allow OpenSSH
+# By default allow all outgoing traffic and deny all incoming traffic
+sudo ufw allow outgoing
+sudo ufw deny incoming
+
+
+# Allows specific incoming traffic namely: SSH, HTTP and HTTPS
+# services can also be used if alreaady defined in the /etc/services
+sudo ufw allow 22/tcp
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
 
 # Enable ufw with default settings 
 # Be careful as can lock user out without appropriate configuration settings
