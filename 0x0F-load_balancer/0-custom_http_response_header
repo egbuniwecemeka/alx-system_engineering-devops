@@ -14,8 +14,11 @@ sudo service nginx start
 sudo chown -R "$USER":"$USER" /var/www/html
 sudo chmod -R 755 /var/www/
 
-#
+# Writing content to a simple html page
 echo -e "Hello World!" > /var/www/html/index.nginx-debian.html
+
+# Get the hostname
+hostname=$(hostname)
 
 # Add add_header directive under server block
 header_string="server_name _;\n\tadd_header X-Served-By $hostname;"
