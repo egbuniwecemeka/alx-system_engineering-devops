@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# webserver credentials login
+
+# Setting ssh-agent
+eval $("ssh-agent")
+
+# Path to private key
+ssh-add ~/.ssh/school
+
+# Server credentials
+ssh ubuntu@$1
