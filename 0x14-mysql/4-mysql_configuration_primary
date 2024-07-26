@@ -5,9 +5,8 @@
 sudo ufw allow 54.90.29.151 to port on 3306
 
 # Unique identifier used internally to distinguish servers during replication
-server_id	= 1
-log_bin		= /var/log/mysql/mysql-bin.log
-binlog_do_db	= tyrell_corp
+sed -i '/\[mysql\]/a server_id	= 1' /etc/mysql/mysql.conf.d/mysqld.cnf
+sed -i '/\[mysql\]/log_bin	= /var/log/mysql/mysql-bin.log' /etc/mysql/mysql.conf.d/mysqld.cnf
+sed -i '/\[mysql\]/binlog_do_db	= tyrell_corp' /etc/mysql/mysql.conf.d/mysqld.cnf
 
 sudo service service mysql restart
-
