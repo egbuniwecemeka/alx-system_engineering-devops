@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# A bash script setting up source/primary replication
+
+# Allow incoming traffic from replica server
+sudo ufw allow 54.90.29.151 to port on 3306
+
+# Unique identifier used internally to distinguish servers during replication
+server_id	= 1
+log_bin		= /var/log/mysql/mysql-bin.log
+binlog_do_db	= tyrell_corp
+
+sudo service service mysql restart
+
