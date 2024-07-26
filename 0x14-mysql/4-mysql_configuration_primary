@@ -2,11 +2,20 @@
 # A bash script setting up source/primary replication
 
 # Allow incoming traffic from replica server
-sudo ufw allow 54.90.29.151 to port on 3306
+sudo ufw allow from 54.90.29.151 to any port 3306
+
+# Backup configuration file
+cp /etc/mysql/mysql.conf.d/mysql.cnf /etc/mysql/mysql.conf.d/mysql.cnf.bck
 
 # Unique identifier used internally to distinguish servers during replication
+# Add and update replication attributes to source/master server
 sed -i '/\[mysql\]/a server_id	= 1' /etc/mysql/mysql.conf.d/mysqld.cnf
-sed -i '/\[mysql\]/log_bin	= /var/log/mysql/mysql-bin.log' /etc/mysql/mysql.conf.d/mysqld.cnf
-sed -i '/\[mysql\]/binlog_do_db	= tyrell_corp' /etc/mysql/mysql.conf.d/mysqld.cnf
+sed -i 's/^server_id.*/server_id = 1/' /etc/mysql/mysql.conf.d/mysqld.cnf
 
-sudo service service mysql restart
+sed -i '/\[mysql\]/log_bin = /var/log/mysql/mysql-bin.log' /etc/mysql/mysql.conf.d/mysqld.cnf
+sed -i 's/^log_bin.*/log_bin = /var/log/mysql/mysql-bin.log/' /etc/mysql/mysql.conf.d/mysqld.cnf
+
+sed -i '/\[mysql\]/binlog_do_db	= tyrell_corp' /etc/mysql/mysql.conf.d/mysqld.cnf
+sed -i 's/^binlog_do_db.*/binlog_do_db = tyrell_corp/' /etc/mysql/mysql.conf.d/mysqld.cnf
+
+sudo service mysql restart
