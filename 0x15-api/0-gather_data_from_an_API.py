@@ -12,17 +12,23 @@ if __name__ == "__main__":
         exit(1)
 
     emp_id = int(argv[1])
-    url = f'https://jsonplaceholder.typicode.com/todos'
-    response = requests.get(url)
-    data = response.json()
+    url_todo = f'https://jsonplaceholder.typicode.com/todos'
+    url_users = f'https://jsonplaceholder.typicode.com/users'
 
-    # Filter response for specific employee id
-    emp_tasks = [task for task in data if task['userId'] == emp_id]
+    # Fetch data
+    response_todo = requests.get(url_todo)
+    response_users = requests.get(url_users)
+    data_todo = response_todo.json()
+    data_users = response_users.json()
+
+    # Filter todo and users response for specific employee id
+    emp_tasks = [task for task in data_todo if task['userId'] == emp_id]
+    users_name = [user for user in data_users if user['id']]
 
     # Calculate tasks
     total_tasks = len(emp_tasks)
     completed_tasks = sum([1 for task in emp_tasks if task['completed']])
-    employee_name = emp_id
+    employee_name = users_name[0]['name'] if users_name else f"Employee {emp_id}"
     print(f"Employee {employee_name} is done with tasks"
           f"({completed_tasks}/{total_tasks}):")
 
