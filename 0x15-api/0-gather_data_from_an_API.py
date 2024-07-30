@@ -27,5 +27,9 @@ if __name__ == "__main__":
           f"({completed_tasks}/{total_tasks}):")
 
     # Print title of completed tasks
-    completed_tasks_title = [task['title'] for task in emp_tasks if task['completed']]
+    completed_tasks_title = [
+            task['title']
+            for task in emp_tasks
+            if task['completed']
+    ]
     print("\t" + "\n\t".join(completed_tasks_title))
