@@ -23,7 +23,7 @@ if __name__ == "__main__":
 
     # Filter todo and users response for specific employee id
     emp_tasks = [task for task in data_todo if task['userId'] == emp_id]
-    users_name = [user for user in data_users if user['id']]
+    users_name = [user for user in data_users if user['id'] == emp_id]
 
     # Calculate tasks
     total_tasks = len(emp_tasks)
