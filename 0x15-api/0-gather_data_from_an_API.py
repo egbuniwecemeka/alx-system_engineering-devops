@@ -28,7 +28,7 @@ if __name__ == "__main__":
     # Calculate tasks
     total_tasks = len(emp_tasks)
     completed_tasks = sum([1 for task in emp_tasks if task['completed']])
-    employee_name = users_name[0]['name'] if users_name else f"Employee {emp_id}"
+    employee_name = users_name[0]['name'] if users_name else f"{emp_id}"
     print(f"Employee {employee_name} is done with tasks"
           f"({completed_tasks}/{total_tasks}):")
 
