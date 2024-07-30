@@ -30,7 +30,7 @@ if __name__ == "__main__":
     completed_tasks = sum([1 for task in emp_tasks if task['completed']])
     employee_name = users_name[0]['name'] if users_name else f"{emp_id}"
     print(f"Employee {employee_name} is done with tasks"
-            f"({completed_tasks}/{total_tasks}):")
+          f"({completed_tasks}/{total_tasks}):")
 
     # Print title of completed tasks
     completed_tasks_title = [
@@ -38,5 +38,5 @@ if __name__ == "__main__":
             for task in emp_tasks
             if task['completed']
     ]
-    formatted_tasks = "\n".join(f"\t {title}"for title in completed_tasks_title)
-    print(formatted_tasks)
+    format_tasks = "\n".join(f"\t {title}"for title in completed_tasks_title)
+    print(format_tasks)
