@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-""" A python script that queries Reddit API and returns the number of subscribers """
+""" Reddit API query that returns the number of subscribers """
 
 import requests
+
 
 def number_of_subscribers(subreddit):
     """ Queries Reddit API and returns total number of subscribers"""
