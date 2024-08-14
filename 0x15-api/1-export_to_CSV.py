@@ -4,6 +4,7 @@
 
 import requests
 from sys import argv
+import csv
 
 if __name__ == "__main__":
     """ Program retrieves data from an API"""
@@ -12,24 +13,35 @@ if __name__ == "__main__":
         exit(1)
 
     emp_id = int(argv[1])
+
+    # Get /todos response from an API
     url = f'https://jsonplaceholder.typicode.com/todos'
-    response = requests.get(url)
-    data = response.json()
+    response_todo = requests.get(url)
+    data_todo = response.json()
+
+    # Get /todos response from an API
+    url = f'https://jsonplaceholder.typicode.com/users'
+    response_user = requests.get(url)
+    data_user = response.json()
+
 
     # Filter response for specific employee id
-    emp_tasks = [task for task in data if task['userId'] == emp_id]
+    emp_tasks = [task for task in data_todo if task['userId'] == emp_id]
 
-    # Calculate tasks
-    total_tasks = len(emp_tasks)
-    completed_tasks = sum([1 for task in emp_tasks if task['completed']])
-    employee_name = [1 for task in data if task['userId']]
-    print(f"{employee_name} is done with tasks"
-          f"({completed_tasks}/{total_tasks}):")
+    # Filter response for spicific username
+    user_name = [user['name'] for task in emp_tasks if task['completed']])
 
-    # Print title of completed tasks
-    completed_tasks_title = [
-            task['title']
-            for task in emp_tasks
-            if task['completed']
-    ]
-    print("\t" + "\n\t".join(completed_tasks_title))
+    # Setting up csv file and format
+    csv_file_name = f'{emp_id}'
+    csv_data = []
+    for data in emp_tasks:
+        csv_data.append([
+                str(emp_id), 
+                employee_name,
+                str(task['complete'],
+                task['title'])
+        ])
+
+    with (csv_file_name, w, newline='') as file:
+        writer = csv.writer(file)
+        writer.writerows(csv_data)
