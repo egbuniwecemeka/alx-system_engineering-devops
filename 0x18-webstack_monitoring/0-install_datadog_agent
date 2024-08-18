@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Run this command to install or update datadog-gent
+DD_API_KEY=08a8e144decde55c3e73cbe267a17033 DD_SITE="us5.datadoghq.com" bash -c "$(curl -L https://install.datadoghq.com/scripts/install_script_agent7.sh)"
