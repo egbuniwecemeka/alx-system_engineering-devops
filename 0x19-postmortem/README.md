@@ -53,6 +53,7 @@ __Long-term Preventative Measures__:
     - Backup and Version Control: Implement robost backup and version control strategy for WordPress configuration files. This ensures that changes are easily tracked and can be also reverted.
 
 * __Lessons Learned__
+
 __Importance of Configuration Audits__: Regular configuration reviews are critical to catching potential issues before they lead to outages/downtime. The misconfiguration in the wp-settings.php could have been prevented with a more rigorous audit process.
 
 __Need for File type validation__: File type validation performs file type check, catching bugs in development, before it gets to production.
