@@ -4,7 +4,7 @@ __Incident Date__: August 16, 2024
 
 __Duration__: 2 hours (from 08:00 AM to 10:00 AM WAT)
 
-__Impact__: Approximately 80% of users experienced service interruptions, leading to failed requests and an inability to access key functionalities.
+__Impact__: 100% of users experienced service interruptions, leading to failed requests and an inability to access key functionalities.
 
 __Summary__
 On August 16, 2024, our web services experienced a significant downtime characterized by a surge in 500 server errors. These errors, particularly 500 Internal Server Error disrupted service for about two hours, impacting a large portion of our user base. This postmortem provides an in-depth analysis of the incident, outlines the root causes, and discusses the actions taken to restore normal operations and prevent future occurrences.
@@ -34,7 +34,7 @@ There was a typographical error of in the file /var/www/html/wp-settings.php. In
 
 __User Experience__:
 
-Approximately 80% of users experienced failed requests and were unable to access key functionalities on our platform during the incident.
+100% of users experienced failed requests and were unable to access key functionalities on our platform during the incident.
 Users reported frustration and potential loss of data due to repeated 500 Internal Server Error responses.
 
 __Business__:
@@ -43,7 +43,7 @@ Customer support teams received a higher-than-normal volume of inquiries related
 
 __Resolution__
 __Immediate Fixes__:
-    - The ".phpp" misspelt extension was corrected to properly access its file contents and retrieve response to a request.
+    - The ".phpp" misspelt extension was corrected to properly access its file contents and retrieve response to a request. This was done with the use of an automated puppet file that used the "sed" command to perform inline text replacement and fix the desired typographical error
     - Automated Testing was carried out to ensure proper file handling and correct repsonse retrieval
     - File Type Validation was implemented for stricter file type check, preventing issues like incorrect file extensions ("phpp") before they get to production
 
@@ -51,6 +51,7 @@ __Long-term Preventative Measures__:
     - Word Press Configuration File Review: Regular audits of wp-settings.php configurations will be scheduled to ensure they remain optimal.
     - Monitoring and Alerts: Setup real-time monitoring system that alerts the team if there is any change in important WordPress configuration files. This allows for quick identification, investigation and remediation.
     - Backup and Version Control: Implement robost backup and version control strategy for WordPress configuration files. This ensures that changes are easily tracked and can be also reverted.
+    - Traning and seminar sessions on usage of diagnostic tools used in identifying and fixing the bug. These includes __strace, tmux, linux search commands, puppet, ruby, puppet-lint__. This will help engineers be better equipped and prevent or fix future tasks.
 
 * __Lessons Learned__
 
