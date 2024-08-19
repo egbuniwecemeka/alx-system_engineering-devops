@@ -1,5 +1,7 @@
 # Postmortem: Service Outage Due to 500 Server Errors
 
+[Diagrammatic Link](https://miro.com/app/board/uXjVNoFBTmg=/)
+
 __Incident Date__: August 16, 2024
 
 __Duration__: 2 hours (from 08:00 AM to 10:00 AM WAT)
