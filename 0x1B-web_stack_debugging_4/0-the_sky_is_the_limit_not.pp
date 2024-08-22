@@ -5,5 +5,5 @@ exec{'fix-ulimit':
   command => '/bin/sed -i "s/15/4096/" etc/default/nginx',
 
   # Path to config file containing ulimit value
-  path => '/usr/local/bin/:/bin'
+  path    => '/usr/local/bin/:/bin'
 }
