@@ -1,0 +1,22 @@
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    # Server IP address to server page
+    server_name 54.90.29.151;
+
+    # HTTP Response Header
+    add_header X-Served-By 446229-web-01;
+
+    # Serve route /airbnb-onepage/ to AirBnB_v2
+    location = /airbnb-onepage/ {
+        proxy_pass http://127.0.0.1:5000/airbnb-onepage/;
+    }
+
+    # Custom 404 error page
+    error_page 404 /404.html;
+    location /404 {
+        root /var/www/html;
+        internal;
+    }
+}
