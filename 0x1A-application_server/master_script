@@ -1,0 +1,28 @@
+#!/usr/bin/bash
+# An automated script to serve an application on a server
+
+# Update system
+sudo apt-get update
+
+# Download nginx if not installed
+sudo apt -y install nginx
+
+# Clone and move into repository
+git clone https://github.com/egbuniwecemeka/AirBnB_clone_v2.git
+cd AirBnB_clone_v2
+
+
+# Install virtual environment
+sudo apt install -y python3.8-venv
+
+# Create virtual environment (airbnb2)
+python3 -m venv airbnb2
+
+# Activate virtual envirnoment
+source airbnbv2/bin/activate
+
+# Install environment dependencies
+# Install flask
+sudo apt install flask
+# Install net-tools
+sudo apt install -y net-tools
